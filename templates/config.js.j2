@@ -289,7 +289,7 @@ module.exports = {
 		// @type     boolean
 		// @default  false
 		//
-		enable: false,
+		enable: {{ lounge_ssl }},
 
 		//
 		// Path to the key.
@@ -298,7 +298,7 @@ module.exports = {
 		// @example  "sslcert/key.pem"
 		// @default  ""
 		//
-		key: "",
+		key: "{{ lounge_ssl_path }}{{ lounge_ssl_name }}.key",
 
 		//
 		// Path to the certificate.
@@ -307,7 +307,7 @@ module.exports = {
 		// @example  "sslcert/key-cert.pem"
 		// @default  ""
 		//
-		certificate: "",
+		certificate: "{{ lounge_ssl_path }}{{ lounge_ssl_name }}.pem",
 
 		//
 		// Path to the CA bundle.
