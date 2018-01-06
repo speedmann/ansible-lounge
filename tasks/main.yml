@@ -14,9 +14,25 @@
 
 - name: Ensure that the latest version of Node.js 4.x (LTS) is installed
   apt:
+    cache_valid_time: 1
+    update_cache: True
     pkg: nodejs
     state: latest
   become: yes
+
+- name: Ensure that the latest version of npm 4.x (LTS) is installed
+  apt:
+    pkg: npm
+    cache_valid_time: 1
+    update_cache: True
+    state: latest
+  become: yes
+
+- name: Make sure nodejs is linked to node
+  file:
+    src: /usr/bin/nodejs
+    dest: /usr/bin/node
+    state: link
 
 - name: Ensure thelounge package is installed
   npm:
