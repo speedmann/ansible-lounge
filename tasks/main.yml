@@ -28,12 +28,6 @@
     state: latest
   become: yes
 
-- name: Make sure nodejs is linked to node
-  file:
-    src: /usr/bin/nodejs
-    dest: /usr/bin/node
-    state: link
-
 - name: Ensure thelounge package is installed
   npm:
     name: thelounge
